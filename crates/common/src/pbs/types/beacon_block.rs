@@ -1,4 +1,4 @@
-use alloy::{primitives::B256, rpc::types::beacon::BlsSignature};
+use alloy::{primitives::{Bytes, B256}, rpc::types::beacon::BlsSignature};
 use serde::{Deserialize, Serialize};
 use ssz_derive::{Decode, Encode};
 
@@ -112,6 +112,7 @@ impl PayloadAndBlobsDeneb {
 pub struct PayloadAndBlobsElectra {
     pub execution_payload: ExecutionPayload<ElectraSpec>,
     pub blobs_bundle: BlobsBundle<ElectraSpec>,
+    pub execution_requests: Vec<Bytes>,
 }
 
 impl PayloadAndBlobsElectra {
